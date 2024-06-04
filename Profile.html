@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Profile.css">
+    <title>Profile</title>
+
+</head>
+
+<body >
+
+    <div class="header">
+        <h1>News Application</h1>
+        <div class="menu">
+            <button onclick="logOut()">LogOut</button>
+
+        </div>
+
+    </div>
+    <h2>Your Detail</h2>
+    
+    <div class="details">
+        <label for="name">name</label>
+        
+        <h3>
+            <script>
+                
+                document.write(localStorage.getItem("name"));
+
+            </script>
+        </h3>
+
+        <label for="email">email</label>
+
+        <h3>
+            
+            <script>
+                document.write(localStorage.getItem("email"));
+
+            </script>
+        </h3>
+
+        <label for="phoneNumber">phoneNumber</label>
+        <h3>
+            
+            <script>
+                document.write(localStorage.getItem("phoneNumber"));
+
+            </script>
+        </h3>
+        <h3>
+            <label for="gender">gender</label>
+
+            <script>
+                document.write(localStorage.getItem("gender"));
+
+            </script>
+        </h3>
+
+
+
+    </div>
+
+</body>
+<Script>
+    function logOut() {
+        localStorage.removeItem("name");
+        localStorage.removeItem("email");
+        window.location.href = "LogInForm.html";
+    }
+</Script>
+
+</html>
