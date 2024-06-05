@@ -50,19 +50,25 @@
             localStorage.setItem("email", current_user.email);
             localStorage.setItem("phoneNumber", current_user.phoneNumber);
             localStorage.setItem("gender", current_user.gender);
-            aptrinsic("identify",
+
+            var userid = email.substring(1,3);
+
+                aptrinsic("identify",
+
 {
-//User Fields
-  "id": "12345", // Required for logged in app users
-  "email": "sai kiran chary",
+    
+    // User Fields
+    "id": userid, // Required for logged in app users
+    "email": email,
 },
 {
-//Account Fields
-  "id":"IBM", //Required
-  "name":"International Business Machine",
- 
-});
+    // Account Fields
+    "id": "IBM", // Required
+    "name": "International Business Machine",
+}
+);
 
+alert("fasjfdgashjfgaskhjfas")
             window.location.href = "news.html";
         } else {
             alert("Login Failed");
