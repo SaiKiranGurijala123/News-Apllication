@@ -1,74 +1,81 @@
-// const container = document.querySelector(".container");
-// const optionsContainer=document.querySelector("options-container")
+// LogIn Form Script
+(function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
+    (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
+  var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
+  var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
+})(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-HMVJXVOOAUYX-2");
 
-// const country="in";
-// const options=["general","entertainment","health","science","sports","technology"];
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
+    function checkUser() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        let emailError = document.getElementById("email-error");
+        let passError = document.getElementById("pass-error");
+
+        // Hide error messages by default
+        emailError.style.display = 'none';
+        passError.style.display = 'none';
+
+        let valid = true;
+
+        // Validate email
+        if (!validateEmail(email)) {
+            emailError.style.display = 'block';
+            valid = false;
+        }
+
+        // Validate password
+        if (password.trim() === "") {
+            passError.style.display = 'block';
+            valid = false;
+        }
+
+        if (!valid) {
+            return;
+        }
+
+        let user_records = JSON.parse(localStorage.getItem("users")) || [];
+        if (user_records.some((v) => v.email === email && v.password === password)) {
+            alert("LogIn Successful");
+
+           //passing user and account objects:
+
+            let current_user = user_records.filter((v) => v.email === email && v.password === password)[0];
+            localStorage.setItem("name", current_user.name);
+            localStorage.setItem("email", current_user.email);
+            localStorage.setItem("phoneNumber", current_user.phoneNumber);
+            localStorage.setItem("gender", current_user.gender);
+            aptrinsic("identify",
+{
+//User Fields
+  "id": "12345", // Required for logged in app users
+  "email": "sai kiran chary",
+},
+{
+//Account Fields
+  "id":"IBM", //Required
+  "name":"International Business Machine",
+ 
+});
+
+            window.location.href = "news.html";
+        } else {
+            alert("Login Failed");
+        }
+    }
 
 
 
-// let requestURL;
 
-// const generateUI=(articles) =>{
-
-//     for (let item of articles ){
-//         let card=document.createElement("div");
-//         card.classList.add("news-card");
-//         card.innerHTML=`<div class="news-images-container"> 
-//         <img src="${item.urlToImage || "./newspaper.jpg"}
-//         " alt=""/>
-//         </div>
-//         <div class="news-content">
-//         <div class="news-title">
-//         ${item.title}
-//         </div>
-//         <div class="news-description">
-//         ${item.description || item.content ||""}
-//         </div>
-//         <a href ="${item.url}" target="_blank"
-//         class ="view-button"> read more</a>
-//         </div>`
-
-//         container.appendChild(card);
-        
-//     };
-
-//     const getNews=async()=>{
-//         container.innerHTML= "";
-//         let response=await fetch (requestURL);
-//         if(!response.ok){
-//             alert("data Unavailable at the moment. please try again later");
-//             return false;
-
-//         }
-//         let data =await response.json();
-//         generateUI(data.articles)
-//     }
-
-// }
-// const init=()=>{
-//     optionsContainer.innerHTML="";
-//     getNews();
-//     createOptions();
-// };
-// window.onload=()=>{
-    
-//     requestURL=`https://newsapi.org/v2/top-headlines?country=us&apiKey=3bf8c16817f849cd85bc8a2a007ed7da`;
-//     init()
-// }
-
-
-
-
+    // news Script
 
 document.addEventListener("DOMContentLoaded", function() {
     const newsContainer = document.getElementById('news-container');
-
-
-    (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
-        (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
-      var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
-      var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
-    })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-HMVJXVOOAUYX-2");
 
     // Function to fetch news from an API
     async function fetchNews() {
@@ -117,5 +124,5 @@ document.addEventListener("DOMContentLoaded", function() {
 function logOut(){
     localStorage.removeItem("name");
     localStorage.removeItem("email");
-    window.location.href="LogInForm.html";
+    window.location.href="index.html";
 }
