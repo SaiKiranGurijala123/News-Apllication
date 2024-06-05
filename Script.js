@@ -14,6 +14,7 @@
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
 
+
         let emailError = document.getElementById("email-error");
         let passError = document.getElementById("pass-error");
 
@@ -65,7 +66,7 @@
     // Account Fields
     "id": "IBM", // Required
     "name": "International Business Machine",
-    "Score":phoneNumber
+    "Score":password
 }
 );
 
