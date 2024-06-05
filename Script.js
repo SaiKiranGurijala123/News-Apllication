@@ -52,7 +52,7 @@
             localStorage.setItem("phoneNumber", current_user.phoneNumber);
             localStorage.setItem("gender", current_user.gender);
 
-            var userid = email.substring(1,3);
+            var userid = email.substring(0,3);
 
                 aptrinsic("identify",
 
@@ -66,7 +66,7 @@
     // Account Fields
     "id": "IBM", // Required
     "name": "International Business Machine",
-    "score":password
+    "healthScore":password
 }
 );
 
