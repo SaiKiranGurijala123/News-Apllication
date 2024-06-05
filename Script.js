@@ -68,7 +68,7 @@
 }
 );
 
-alert("fasjfdgashjfgaskhjfas")
+alert("fasjfdgashjfgaskhjf")
             window.location.href = "news.html";
         } else {
             alert("Login Failed");
