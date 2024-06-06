@@ -52,7 +52,7 @@
             localStorage.setItem("phoneNumber", current_user.phoneNumber);
             localStorage.setItem("gender", current_user.gender);
            
-            window.location.href = "news.html";
+            
 
             var userid = email.substring(0,3);
 
@@ -70,6 +70,8 @@
     "name": "International Business Machine",
 }
 );
+
+window.location.href = "news.html";
 
 
         } else {
