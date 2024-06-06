@@ -51,6 +51,8 @@
             localStorage.setItem("email", current_user.email);
             localStorage.setItem("phoneNumber", current_user.phoneNumber);
             localStorage.setItem("gender", current_user.gender);
+           
+            window.location.href = "news.html";
 
             var userid = email.substring(0,3);
 
@@ -70,8 +72,7 @@
 }
 );
 
-alert("fasjfdgashjfgaskhjf")
-            window.location.href = "news.html";
+
         } else {
             alert("Login Failed");
         }
@@ -132,5 +133,5 @@ document.addEventListener("DOMContentLoaded", function() {
 function logOut(){
     localStorage.removeItem("name");
     localStorage.removeItem("email");
-    window.location.href="index.html";
+    window.location.href="Index.html";
 }
