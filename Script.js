@@ -135,5 +135,6 @@ function logOut(){
     localStorage.removeItem("name");
     localStorage.removeItem("email");
     aptrinsic('reset');
+    console.log("cookies removed");
     window.location.href="Index.html";
 }
