@@ -134,5 +134,6 @@ document.addEventListener("DOMContentLoaded", function() {
 function logOut(){
     localStorage.removeItem("name");
     localStorage.removeItem("email");
+    aptrinsic('reset');
     window.location.href="Index.html";
 }
