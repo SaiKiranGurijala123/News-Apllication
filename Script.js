@@ -154,3 +154,63 @@ function getEData(){
 function sendDataToPax(address, fname, mname, pincode){
     aptrinsic('track', 'formText', {"address":address,"fname":fname,"mname":mname,"pincode":pincode});
 }
+
+function PXPageTimer(maxSecondsTracked, trackPagesOverMax) {
+    this.pageName = null;
+    this.startTime = null;
+    this.maxSecondsTracked = maxSecondsTracked || 3600 * 24;
+    this.trackPagesOverMax = trackPagesOverMax !== false;
+    this.startTimer = function (pageName) {
+      try {
+        if (this.pageName && this.pageName !== pageName) {
+          this.endTimer();
+        }
+        this.pageName = pageName;
+        this.startTime = Date.now();
+      } catch (e) {
+        console.log("Unable to start timer on ", this.pageName);
+      }
+    };
+    this.endTimer = function (pageUnloaded) {
+      try {
+        if (this.pageName) {
+          let endTime = Date.now();
+          let secondsOnPage = (endTime - this.startTime) / 1000;
+          if (secondsOnPage <= this.maxSecondsTracked || this.trackPagesOverMax) {
+            window.aptrinsic('track', 'timeOnPage', {
+              'pageName': this.pageName,
+              'seconds': Math.min(secondsOnPage,this.maxSecondsTracked),
+              'pageUnloaded': pageUnloaded
+            });
+          }
+          this.pageName = undefined;
+        }
+      } catch (e) {
+        console.log("Unable to log time on page", this.pageName);
+      }
+    };
+  }
+  
+  (function InitializeTimer() {
+    let maxSecondsTracked = 60 * 60; // Track time on page for up to one hour
+    let trackPagesOverMax = false;  // Ignore any pages over one hour
+    let featureTimer = new PXPageTimer(maxSecondsTracked, trackPagesOverMax);
+    
+    // Initial page
+    featureTimer.startTimer(window.location.href);
+  
+    window.addEventListener('hashchange', () => {
+      featureTimer.startTimer(window.location.href);
+    });
+    window.addEventListener('popstate', () => {
+      featureTimer.startTimer(window.location.href);
+    });
+    window.addEventListener('beforeunload', () => {
+      featureTimer.endTimer(true);
+    });
+    let realPushState = window.history.pushState;
+    window.history.pushState = function (state, title, newLocation) {
+      featureTimer.startTimer(newLocation.href);
+      return realPushState.apply(window.history, arguments); // Call the original
+    };
+  })();
