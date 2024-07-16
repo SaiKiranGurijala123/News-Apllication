@@ -147,13 +147,14 @@ function getEData(){
         let mname = document.getElementById("mName").value;
         let pincode = document.getElementById("pin").value;
         console.log(address+fname+mname+pincode)
-        sendDataToPax(address, fname, mname, pincode);
+        // sendDataToPax(address, fname, mname, pincode);
+        aptrinsic('track', 'formText', {"address":address,"fname":fname,"mname":mname,"pincode":pincode});
 
 
 }
-function sendDataToPax(address, fname, mname, pincode){
-    aptrinsic('track', 'formText', {"address":address,"fname":fname,"mname":mname,"pincode":pincode});
-}
+// function sendDataToPax(address, fname, mname, pincode){
+//     aptrinsic('track', 'formText', {"address":address,"fname":fname,"mname":mname,"pincode":pincode});
+// }
 
 function PXPageTimer(maxSecondsTracked, trackPagesOverMax) {
     this.pageName = null;
