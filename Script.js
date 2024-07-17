@@ -149,6 +149,7 @@ function getEData(){
         console.log(address+fname+mname+pincode)
         // sendDataToPax(address, fname, mname, pincode);
         aptrinsic('track', 'formText', {"address":address,"fname":fname,"mname":mname,"pincode":pincode});
+        aptrinsic('track', 'collectInfo', {"address":address,"fname":fname,"mname":mname,"pincode":pincode});
 
 
 }
