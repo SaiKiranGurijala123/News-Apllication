@@ -150,6 +150,8 @@ function getEData(){
         // sendDataToPax(address, fname, mname, pincode);
         window.aptrinsic('track', 'formText', {'address':address,'fname':fname,'mname':mname,'pincode':pincode});
         window.aptrinsic('track', 'collectInfo', {'address':address,'fname':fname,'mname':mname,'pincode':pincode});
+        alert("fsdfs")
+
 
 
 }
