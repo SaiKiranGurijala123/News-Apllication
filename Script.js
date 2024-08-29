@@ -155,6 +155,12 @@ function getEData(){
 
 
 }
+
+function buttonclick(){
+  window.aptrinsic('track', '328018 Test', {'status' : 'clicked'});
+  console.log("button was clicked");
+
+}
 // function sendDataToPax(address, fname, mname, pincode){
 //     aptrinsic('track', 'formText', {"address":address,"fname":fname,"mname":mname,"pincode":pincode});
 // }
