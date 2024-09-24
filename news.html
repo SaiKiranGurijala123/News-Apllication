@@ -39,6 +39,8 @@
             <button onclick="logOut()">LogOut</button>
             <button id="detail_btn"><a href="GetDetails.html">Add Details</a></button>
             <button id="payment-id" payment-test="payment"><a href="Payments.html">Payment</a></button>
+            <button id="dup-selector">Get News</button>
+
 
         </div>
         <a href="Payments.html">payment 2</a>
@@ -51,14 +53,105 @@
             <!-- News articles will be displayed here -->
         </div>
     </div>
-<input class="add" type="text">
-<input type="text">
 
-<div class="abcdef">
- <input type="checkbox" id="option-0-1" value="Financial services" data-label="Financial services">
-</div>
+    <div class="dropdown">
+        <div class="dropdown-btn">Select options <span class="selected-options">None</span></div>
+        <div class="dropdown-content">
+            <div class="custom-checkbox">
+                <input type="checkbox" id="option-1" value="Financial services" data-label="Financial services">
+                <label for="option-1">
+                    <span class="title">Financial services</span>
+                    <span class="icon icon-checked">✔</span>
+                </label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" id="option-2" value="Healthcare" data-label="Healthcare">
+                <label for="option-2">
+                    <span class="title">Healthcare</span>
+                    <span class="icon icon-checked">✔</span>
+                </label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" id="option-3" value="High tech" data-label="High tech">
+                <label for="option-3">
+                    <span class="title">High tech</span>
+                    <span class="icon icon-checked">✔</span>
+                </label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" id="option-4" value="Education" data-label="Education">
+                <label for="option-4">
+                    <span class="title">Education</span>
+                    <span class="icon icon-checked">✔</span>
+                </label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" id="option-5" value="Retail" data-label="Retail">
+                <label for="option-5">
+                    <span class="title">Retail</span>
+                    <span class="icon icon-checked">✔</span>
+                </label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" id="option-6" value="Government" data-label="Government">
+                <label for="option-6">
+                    <span class="title">Government</span>
+                    <span class="icon icon-checked">✔</span>
+                </label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" id="option-7" value="Manufacturing" data-label="Manufacturing">
+                <label for="option-7">
+                    <span class="title">Manufacturing</span>
+                    <span class="icon icon-checked">✔</span>
+                </label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" id="option-8" value="Travel and Hospitality" data-label="Travel and Hospitality">
+                <label for="option-8">
+                    <span class="title">Travel and Hospitality</span>
+                    <span class="icon icon-checked">✔</span>
+                </label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" id="option-9" value="Telecommunication" data-label="Telecommunication">
+                <label for="option-9">
+                    <span class="title">Telecommunication</span>
+                    <span class="icon icon-checked">✔</span>
+                </label>
+            </div>
+        </div>
+    </div>
+    
 
+<Script>
+  // Toggle dropdown visibility
+  document.querySelector('.dropdown-btn').addEventListener('click', function () {
+        document.querySelector('.dropdown-content').classList.toggle('show');
+    });
 
+    // Handle checkbox selection and update the button text
+    document.querySelectorAll('.dropdown-content input[type="checkbox"]').forEach(item => {
+        item.addEventListener('change', function () {
+            updateSelected();
+        });
+    });
+
+    // Function to update the button with selected values
+    function updateSelected() {
+        const selected = Array.from(document.querySelectorAll('.dropdown-content input[type="checkbox"]:checked'))
+            .map(item => item.dataset.label);
+
+        document.querySelector('.selected-options').textContent = selected.length > 0 ? selected.join(', ') : 'None';
+    }
+
+    // Close dropdown if clicking outside
+    window.addEventListener('click', function (e) {
+        if (!e.target.matches('.dropdown-btn') && !e.target.closest('.dropdown')) {
+            document.querySelector('.dropdown-content').classList.remove('show');
+        }
+    });
+</Script>
    
 </body>
 </html>
