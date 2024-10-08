@@ -84,6 +84,12 @@ window.location.href = "news.html";
 
     // news Script
 
+    function getCurrentURl(){
+     var currentURl=window.location.href
+     console.log(currentURl+"    exaple URl");
+      aptrinsic('set', 'user', {'URL' : 'currentURl'});
+    }
+
 document.addEventListener("DOMContentLoaded", function() {
     const newsContainer = document.getElementById('news-container');
 
@@ -224,5 +230,7 @@ function PXPageTimer(maxSecondsTracked, trackPagesOverMax) {
       return realPushState.apply(window.history, arguments); // Call the original
     };
   })();
+
+ 
 
   
