@@ -84,7 +84,7 @@ window.location.href = "news.html";
 
     // news Script
 
-    function getCurrentURl(){
+    window.onload =function(){
      var currentURl=window.location.href
      console.log(currentURl+"    exaple URl");
      alert(currentURl+"    exaple URl")
