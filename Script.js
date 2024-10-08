@@ -87,6 +87,7 @@ window.location.href = "news.html";
     function getCurrentURl(){
      var currentURl=window.location.href
      console.log(currentURl+"    exaple URl");
+     alert(currentURl+"    exaple URl")
       aptrinsic('set', 'user', {'URL' : 'currentURl'});
     }
 
