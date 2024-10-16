@@ -171,6 +171,19 @@ function buttonclick(){
 //     aptrinsic('track', 'formText', {"address":address,"fname":fname,"mname":mname,"pincode":pincode});
 // }
 
+
+function toggleButton() {
+  var checkbox = document.getElementById("myCheckbox");
+  var button = document.getElementById("myButton");
+  
+  // Enable the button if the checkbox is checked, disable it otherwise
+  if (checkbox.checked) {
+      button.disabled = false;
+  } else {
+      button.disabled = true;
+  }
+}
+
 function PXPageTimer(maxSecondsTracked, trackPagesOverMax) {
     this.pageName = null;
     this.startTime = null;
