@@ -85,7 +85,9 @@ window.location.href = "news.html";
     // news Script
 
     window.onload =function(){
+      alert("method called");
      var currentURl=window.location.href
+     alert("method called");
      console.log(currentURl +"this is current url");
      
       aptrinsic('set','user',{'URL':currentURl});
