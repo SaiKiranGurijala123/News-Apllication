@@ -84,15 +84,22 @@ window.location.href = "news.html";
 
     // news Script
 
-    window.onload =function(){
-      alert("method called");
-     var currentURl=window.location.href
-     alert("method called");
-     console.log(currentURl +"this is current url");
+    // window.onload =function(){
+    //   alert("method called");
+    //  var currentURl=window.location.href
+    //  alert("method called");
+    //  console.log(currentURl +"this is current url");
      
-      aptrinsic('set','user',{'URL':currentURl});
+    //   aptrinsic('set','user',{'URL':currentURl});
+    //   alert("method called");
+    // }
+
+    document.addEventListener("DOMContentLoaded", function() {
       alert("method called");
-    }
+      var currentURL = window.location.href;
+      console.log(currentURL + " this is the current URL");
+      aptrinsic('set', 'user', { 'URL': currentURL });
+    });
 
 document.addEventListener("DOMContentLoaded", function() {
     const newsContainer = document.getElementById('news-container');
