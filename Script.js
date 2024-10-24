@@ -86,8 +86,10 @@ window.location.href = "news.html";
 
     window.onload =function(){
      var currentURl=window.location.href
-     console.log(currentURl);
+     console.log(currentURl +"this is current url");
+     
       aptrinsic('set','user',{'URL':currentURl});
+      alert("method called")
     }
 
 document.addEventListener("DOMContentLoaded", function() {
