@@ -95,7 +95,6 @@ window.location.href = "news.html";
     // }
 
     document.addEventListener("DOMContentLoaded", function() {
-      alert("method called");
       var currentURL = window.location.href;
       console.log(currentURL + " this is the current URL");
       aptrinsic('set', 'globalContext', {'testbot': currentURL });
