@@ -93,13 +93,13 @@ window.location.href = "news.html";
     //   aptrinsic('set','user',{'URL':currentURl});
     //   alert("method called");
     // }
-
-    document.addEventListener("DOMContentLoaded", function() {
-      alert("method called");
-      var currentURL = window.location.href;
-      console.log(currentURL + " this is the current URL");
-      aptrinsic('set', 'user', { 'URL': currentURL });
-    });
+// for displaying the two bot basesd on the URL
+    // document.addEventListener("DOMContentLoaded", function() {
+    //   alert("method called");
+    //   var currentURL = window.location.href;
+    //   console.log(currentURL + " this is the current URL");
+    //   aptrinsic('set', 'user', { 'URL': currentURL });
+    // });
 
 document.addEventListener("DOMContentLoaded", function() {
     const newsContainer = document.getElementById('news-container');
