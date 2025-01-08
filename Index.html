@@ -129,7 +129,7 @@ aptrinsic("identify",
         }
     </style>
 </head>
-<body>
+<body style="font-family: 'Gibson', sans-serif;;">
     <div class="containerrr">
         <div class="form-box">
             <h1>Log In</h1>
@@ -234,4 +234,221 @@ aptrinsic("identify",
     </script>
     
 </body>
+
+<div class="wrapper">
+    <div class="wrapper_body">
+        <div class="card" id="c1_left" onHover="(function (card) {
+
+let isSelectedCard =  document.getElementById(`${card}_left`).classList.contains('card-selected');
+
+document.getElementById('none_right').style.display = 'none';
+Array.from(document.getElementsByClassName('card')).forEach(item => { 
+  item.classList.remove('card-selected');
+        item.classList.add('card');
+}) 
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_left`).classList.remove('card-selected'); 
+} else {
+document.getElementById(`${card}_left`).classList.add('card-selected'); 
+}
+
+Array.from(document.getElementsByClassName('card_desc')).forEach(item => { 
+    item.style.display = 'none';
+})
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_desc`).style.display = 'none';
+} else {
+  document.getElementById(`${card}_desc`).style.display = 'block';
+}
+
+Array.from(document.getElementsByClassName('card_right')).forEach(item => { 
+    item.style.display = 'none';
+})
+
+
+if (isSelectedCard) {
+document.getElementById(`${card}_right`).style.display = 'none';  
+} else {
+document.getElementById(`${card}_right`).style.display = 'flex';  
+}
+
+if (!document.querySelector('.card-selected')) {
+document.getElementById('none_right').style.display = 'flex';
+}
+
+
+})('c1'); aptrinsic('track', 'release_card1', {'clicked': 'true', 'clickedNumber':1, 'clickedBoolean':true})">
+        <div class="card_header" id="c1_title">
+            <strong class="card_header">
+                <img src="https://storage.googleapis.com/froala-upload-prod/0b669fad-5e70-4250-a06f-0cd41e9feb3d/image/83422ad2-b6b1-4f72-8c00-d59ad81b2dfa.png" width="30" id="px-d28e170f-4eba-4393-b9f8-42fabddd7be9" height="30" style="width: 30px; height: 30px;">
+                    <span style="font-size: 16px; color: rgb(52, 56, 58); text-align: left; display: flex;">Streamlined Engagement Creation</span>
+                </strong>
+            </div>
+            <div class="card_desc" id="c1_desc" style="display: none; text-align: left; margin-left: 10px;">
+                <span style="color: rgb(104, 93, 93); font-size: 12px;">The new Quick Action toolbar allows you to take quick actions like cloning, rearranging, and deleting elements with a click of a button, right from within the engagement editor. Effortlessly locate the engagement element being edited and understand what edits are possible by looking for the highlighted section.</span>
+            </div>
+        </div>
+        <div class="card" id="c2_left" onclick=" (function (card) {
+
+let isSelectedCard = document.getElementById(`${card}_left`).classList.contains('card-selected');
+
+document.getElementById('none_right').style.display = 'none';
+Array.from(document.getElementsByClassName('card')).forEach(item => { 
+item.classList.remove('card-selected');
+      item.classList.add('card');
+})            
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_left`).classList.remove('card-selected'); 
+} else {
+document.getElementById(`${card}_left`).classList.add('card-selected'); 
+}
+
+Array.from(document.getElementsByClassName('card_desc')).forEach(item => { 
+    item.style.display = 'none';
+})
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_desc`).style.display = 'none';
+} else {
+  document.getElementById(`${card}_desc`).style.display = 'block';
+}
+
+Array.from(document.getElementsByClassName('card_right')).forEach(item => { 
+    item.style.display = 'none';
+})
+
+if (isSelectedCard) {
+document.getElementById(`${card}_right`).style.display = 'none';  
+} else {
+document.getElementById(`${card}_right`).style.display = 'flex';  
+}
+
+if (!document.querySelector('.card-selected')) {
+document.getElementById('none_right').style.display = 'flex';
+}
+})('c2'); aptrinsic('track', 'release_card2', {'clicked': 'true', 'clickedNumber':1, 'clickedBoolean':true});">
+        <div id="c2_title">
+            <strong class="card_header">
+                <img src="https://storage.googleapis.com/froala-upload-prod/0b669fad-5e70-4250-a06f-0cd41e9feb3d/image/f7bf2fe5-8631-455a-a512-6d084aab52f4.png" style="width: 28px; text-align: center; height: 25px;" width="28" height="25" id="px-2d18506e-494d-4e15-9f4d-bda2f49d800d">
+                    <span style="font-size: 16px; color: rgb(52, 56, 58); display: flex;">CSV Segments Upload                         </span>
+                </strong>
+            </div>
+            <div class="card_desc" id="c2_desc" style="display: none; text-align: left; margin-left: 10px;">
+                <span style="color: rgb(104, 93, 93); font-size: 12px;">Easily import a set customer list into Gainsight PX by uploading a CSV file to create a new segment. Leverage the CSV segment in engagements, analytics, and dashboards.</span>
+            </div>
+        </div>
+        <div class="card" id="c3_left" onclick="(function (card) {
+
+let isSelectedCard = document.getElementById(`${card}_left`).classList.contains('card-selected');
+
+document.getElementById('none_right').style.display = 'none';
+
+Array.from(document.getElementsByClassName('card')).forEach(item => { 
+item.classList.remove('card-selected');
+    item.classList.add('card');
+})
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_left`).classList.remove('card-selected'); 
+} else {
+document.getElementById(`${card}_left`).classList.add('card-selected'); 
+}
+
+Array.from(document.getElementsByClassName('card_desc')).forEach(item => { 
+    item.style.display = 'none';
+})
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_desc`).style.display = 'none';
+} else {
+  document.getElementById(`${card}_desc`).style.display = 'block';
+}
+
+Array.from(document.getElementsByClassName('card_right')).forEach(item => { 
+  item.style.display = 'none';
+})
+
+if (isSelectedCard) {
+document.getElementById(`${card}_right`).style.display = 'none';  
+} else {
+document.getElementById(`${card}_right`).style.display = 'flex';  
+}
+
+if (!document.querySelector('.card-selected')) {
+document.getElementById('none_right').style.display = 'flex';
+}
+
+})('c3'); aptrinsic('track', 'release_card3', {'clicked': 'true', 'clickedNumber':1, 'clickedBoolean':true});">
+        <div id="c3_title">
+            <strong class="card_header">
+                <img src="https://storage.googleapis.com/froala-upload-prod/0b669fad-5e70-4250-a06f-0cd41e9feb3d/image/ce5a2f99-2fc1-43b1-86ae-1132e4677096.png" style="width: 25px; text-align: center; height: 25px;" width="25" height="25" id="px-8a4e616e-4c16-4e50-8c98-115365ddaf02">
+                    <span style="font-size: 16px; color: rgb(52, 56, 58); display: flex;">Segments Enhancements</span>
+                </strong>
+            </div>
+            <div class="card_desc" id="c3_desc" style="display: none; text-align: left; margin-left: 8px;">
+                <span style="color: rgb(104, 93, 93); font-size: 12px;">Quickly identify, filter, and use your segments with enhanced segment categorization. Categories include:
+                Real-Time Segments - Segments that are built based on rules in Gainsight PX and updated in real-time.
+
+Segments - CSV segments and External Segments (segments that are pushed into PX from external systems such as Adobe Experience Platform).
+
+
+
+<div class="card" id="c4_left" onclick="(function (card) {
+let isSelectedCard = document.getElementById(`${card}_left`).classList.contains('card-selected');
+
+document.getElementById('none_right').style.display = 'none';
+
+Array.from(document.getElementsByClassName('card')).forEach(item => { 
+item.classList.remove('card-selected');
+    item.classList.add('card');
+})
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_left`).classList.remove('card-selected'); 
+} else {
+document.getElementById(`${card}_left`).classList.add('card-selected'); 
+}
+
+Array.from(document.getElementsByClassName('card_desc')).forEach(item => { 
+    item.style.display = 'none';
+})
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_desc`).style.display = 'none';
+} else {
+  document.getElementById(`${card}_desc`).style.display = 'block';
+}
+
+Array.from(document.getElementsByClassName('card_right')).forEach(item => { 
+  item.style.display = 'none';
+})
+
+if (isSelectedCard) {
+document.getElementById(`${card}_right`).style.display = 'none';  
+} else {
+document.getElementById(`${card}_right`).style.display = 'flex';  
+}
+
+if (!document.querySelector('.card-selected')) {
+document.getElementById('none_right').style.display = 'flex';
+}
+
+})('c4'); aptrinsic('track', 'release_card4', {'clicked': 'true', 'clickedNumber':1, 'clickedBoolean':true});">
+            <div id="c4_title">
+                <strong class="card_header">
+                    <img src="https://storage.googleapis.com/froala-upload-prod/0b669fad-5e70-4250-a06f-0cd41e9feb3d/image/f4050c9a-44a7-4e30-829f-6b5c02ff42f2.png" style="width: 25px; text-align: center; height: 25px;" width="25" height="25" id="px-24f9ee96-102c-4fcc-b021-2f764bcb98f0">
+                        <span style="font-size: 16px; color: rgb(52, 56, 58); display: flex;">
+                            <strong>CTA Analytics Enhancements</strong>
+                        </span>
+                    </strong>
+                </div>
+                <div class="card_desc" id="c4_desc" style="display: none; text-align: left; margin-left: 8px;">
+                    <span style="color: rgb(104, 93, 93); font-size: 12px;">The new CTA Analytics tab in In-App Performance reports enables you to track the performance of multiple CTAs across users and accounts. Leverage detailed CTA analytics to understand engagement impact and optimize the user experience. </span>
+                </div>
+            </div>
+        </div>
+    </div>
 </html>
