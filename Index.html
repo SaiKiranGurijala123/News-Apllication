@@ -1,0 +1,454 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./css/LogInForm.css">
+    <title>LogInForm</title>
+
+</head>
+<body>
+    <div class="containerrr">
+        <div class="form-box">
+            <h1>Log In</h1>
+            <form action="" method="post">
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="email" id="email" placeholder="Enter email"><br>
+                        
+                    </div>
+                    <div id="email-error" class="error-message">Please enter a valid email.</div>
+
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" id="password" placeholder="Enter password"><br>
+                        
+                    </div>
+                    <div id="pass-error" class="error-message">Please enter a password.</div>
+
+                    <div class="btn-field" >
+                        <button type="button" onclick="checkUser()"> LogIn</button>
+                    </div>
+                    <p>don't have an account <a href="Registerform.html">Click</a> </p>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+    
+</body>
+<script>
+
+
+
+
+
+(function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
+      (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
+    var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
+    var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
+  })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-HMVJXVOOAUYX-2");
+
+    function checkUser(){
+        
+        let email,password;
+        email=document.getElementById("email").value;
+        password=document.getElementById("password").value;
+
+        let user_records= new Array();
+        user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+        if(user_records.some((v)=>{
+            return v.email==email && v.password==password
+        })){
+            alert("LogIn Successfull")
+
+            //passing user and account objects:
+aptrinsic("identify",
+  {
+  //User Fields
+    "id": "unique-user-id", // Required for logged in app users
+    "email": "userEmail@address.com",
+    
+  },
+  {
+  //Account Fields
+    "id":"IBM", //Required
+    "name":"International Business Machine",
+  
+ });
+
+
+
+        let current_user=user_records.filter((v)=>{
+            return v.email ==email && v.password==password
+        })[0]
+        localStorage.setItem("name", current_user.name);
+        localStorage.setItem("email",current_user.email);
+        localStorage.setItem("phoneNumber", current_user.phoneNumber); 
+        localStorage.setItem("gender", current_user.gender);
+        window.location.href="news.html";
+
+    
+
+        }
+        else{
+            alert("Login Faild")
+        }
+
+    }
+
+    
+    
+        
+
+</script>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="LogInForm.css">
+    <title>LogInForm</title>
+    <style>
+        .error-message {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body style="font-family: 'Gibson', sans-serif;;">
+    <div class="containerrr">
+        <div class="form-box">
+            <h1>Log In</h1>
+            <form action="" method="post">
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="email" id="email" placeholder="Enter email"><br>
+                    </div>
+                    <div id="email-error" class="error-message">Please enter a valid email.</div>
+
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" id="password" placeholder="Enter password"><br>
+                    </div>
+                    <div id="pass-error" class="error-message">Please enter a password.</div>
+
+                    <div class="btn-field">
+                        <button type="button" onclick="checkUser()">LogIn</button>
+                    </div>
+                    <p>Don't have an account? <a href="Registerform.html">Click here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="Script.js" >
+//         (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
+//       (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
+//     var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
+//     var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
+//   })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-HMVJXVOOAUYX-2");
+
+//         function validateEmail(email) {
+//             const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//             return re.test(email);
+//         }
+
+//         function checkUser() {
+//             let email = document.getElementById("email").value;
+//             let password = document.getElementById("password").value;
+
+//             let emailError = document.getElementById("email-error");
+//             let passError = document.getElementById("pass-error");
+
+//             // Hide error messages by default
+//             emailError.style.display = 'none';
+//             passError.style.display = 'none';
+
+//             let valid = true;
+
+//             // Validate email
+//             if (!validateEmail(email)) {
+//                 emailError.style.display = 'block';
+//                 valid = false;
+//             }
+
+//             // Validate password
+//             if (password.trim() === "") {
+//                 passError.style.display = 'block';
+//                 valid = false;
+//             }
+
+//             if (!valid) {
+//                 return;
+//             }
+
+//             let user_records = JSON.parse(localStorage.getItem("users")) || [];
+//             if (user_records.some((v) => v.email === email && v.password === password)) {
+//                 alert("LogIn Successful");
+
+//                 // Passing user and account objects:
+               
+
+//                 let current_user = user_records.filter((v) => v.email === email && v.password === password)[0];
+//                 localStorage.setItem("name", current_user.name);
+//                 localStorage.setItem("email", current_user.email);
+//                 localStorage.setItem("phoneNumber", current_user.phoneNumber);
+//                 localStorage.setItem("gender", current_user.gender);
+
+//                 aptrinsic("identify",
+
+// {
+    
+//     // User Fields
+//     "id": "unique-id", // Required for logged in app users
+//     "email": "saikirann",
+// },
+// {
+//     // Account Fields
+//     "id": "IBM", // Required
+//     "name": "International Business Machine",
+// }
+// );
+
+//                 window.location.href = "news.html";
+//             } else {
+//                 alert("Login Failed");
+//             }
+//         }
+
+
+    </script>
+    
+</body>
+
+<div class="wrapper">
+    <div class="wrapper_body">
+        <div class="card" id="c1_left" onHover="(function (card) {
+
+let isSelectedCard =  document.getElementById(`${card}_left`).classList.contains('card-selected');
+
+document.getElementById('none_right').style.display = 'none';
+Array.from(document.getElementsByClassName('card')).forEach(item => { 
+  item.classList.remove('card-selected');
+        item.classList.add('card');
+}) 
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_left`).classList.remove('card-selected'); 
+} else {
+document.getElementById(`${card}_left`).classList.add('card-selected'); 
+}
+
+Array.from(document.getElementsByClassName('card_desc')).forEach(item => { 
+    item.style.display = 'none';
+})
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_desc`).style.display = 'none';
+} else {
+  document.getElementById(`${card}_desc`).style.display = 'block';
+}
+
+Array.from(document.getElementsByClassName('card_right')).forEach(item => { 
+    item.style.display = 'none';
+})
+
+
+if (isSelectedCard) {
+document.getElementById(`${card}_right`).style.display = 'none';  
+} else {
+document.getElementById(`${card}_right`).style.display = 'flex';  
+}
+
+if (!document.querySelector('.card-selected')) {
+document.getElementById('none_right').style.display = 'flex';
+}
+
+
+})('c1'); aptrinsic('track', 'release_card1', {'clicked': 'true', 'clickedNumber':1, 'clickedBoolean':true})">
+        <div class="card_header" id="c1_title">
+            <strong class="card_header">
+                <img src="https://storage.googleapis.com/froala-upload-prod/0b669fad-5e70-4250-a06f-0cd41e9feb3d/image/83422ad2-b6b1-4f72-8c00-d59ad81b2dfa.png" width="30" id="px-d28e170f-4eba-4393-b9f8-42fabddd7be9" height="30" style="width: 30px; height: 30px;">
+                    <span style="font-size: 16px; color: rgb(52, 56, 58); text-align: left; display: flex;">Streamlined Engagement Creation</span>
+                </strong>
+            </div>
+            <div class="card_desc" id="c1_desc" style="display: none; text-align: left; margin-left: 10px;">
+                <span style="color: rgb(104, 93, 93); font-size: 12px;">The new Quick Action toolbar allows you to take quick actions like cloning, rearranging, and deleting elements with a click of a button, right from within the engagement editor. Effortlessly locate the engagement element being edited and understand what edits are possible by looking for the highlighted section.</span>
+            </div>
+        </div>
+        <div class="card" id="c2_left" onclick=" (function (card) {
+
+let isSelectedCard = document.getElementById(`${card}_left`).classList.contains('card-selected');
+
+document.getElementById('none_right').style.display = 'none';
+Array.from(document.getElementsByClassName('card')).forEach(item => { 
+item.classList.remove('card-selected');
+      item.classList.add('card');
+})            
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_left`).classList.remove('card-selected'); 
+} else {
+document.getElementById(`${card}_left`).classList.add('card-selected'); 
+}
+
+Array.from(document.getElementsByClassName('card_desc')).forEach(item => { 
+    item.style.display = 'none';
+})
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_desc`).style.display = 'none';
+} else {
+  document.getElementById(`${card}_desc`).style.display = 'block';
+}
+
+Array.from(document.getElementsByClassName('card_right')).forEach(item => { 
+    item.style.display = 'none';
+})
+
+if (isSelectedCard) {
+document.getElementById(`${card}_right`).style.display = 'none';  
+} else {
+document.getElementById(`${card}_right`).style.display = 'flex';  
+}
+
+if (!document.querySelector('.card-selected')) {
+document.getElementById('none_right').style.display = 'flex';
+}
+})('c2'); aptrinsic('track', 'release_card2', {'clicked': 'true', 'clickedNumber':1, 'clickedBoolean':true});">
+        <div id="c2_title">
+            <strong class="card_header">
+                <img src="https://storage.googleapis.com/froala-upload-prod/0b669fad-5e70-4250-a06f-0cd41e9feb3d/image/f7bf2fe5-8631-455a-a512-6d084aab52f4.png" style="width: 28px; text-align: center; height: 25px;" width="28" height="25" id="px-2d18506e-494d-4e15-9f4d-bda2f49d800d">
+                    <span style="font-size: 16px; color: rgb(52, 56, 58); display: flex;">CSV Segments Upload                         </span>
+                </strong>
+            </div>
+            <div class="card_desc" id="c2_desc" style="display: none; text-align: left; margin-left: 10px;">
+                <span style="color: rgb(104, 93, 93); font-size: 12px;">Easily import a set customer list into Gainsight PX by uploading a CSV file to create a new segment. Leverage the CSV segment in engagements, analytics, and dashboards.</span>
+            </div>
+        </div>
+        <div class="card" id="c3_left" onclick="(function (card) {
+
+let isSelectedCard = document.getElementById(`${card}_left`).classList.contains('card-selected');
+
+document.getElementById('none_right').style.display = 'none';
+
+Array.from(document.getElementsByClassName('card')).forEach(item => { 
+item.classList.remove('card-selected');
+    item.classList.add('card');
+})
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_left`).classList.remove('card-selected'); 
+} else {
+document.getElementById(`${card}_left`).classList.add('card-selected'); 
+}
+
+Array.from(document.getElementsByClassName('card_desc')).forEach(item => { 
+    item.style.display = 'none';
+})
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_desc`).style.display = 'none';
+} else {
+  document.getElementById(`${card}_desc`).style.display = 'block';
+}
+
+Array.from(document.getElementsByClassName('card_right')).forEach(item => { 
+  item.style.display = 'none';
+})
+
+if (isSelectedCard) {
+document.getElementById(`${card}_right`).style.display = 'none';  
+} else {
+document.getElementById(`${card}_right`).style.display = 'flex';  
+}
+
+if (!document.querySelector('.card-selected')) {
+document.getElementById('none_right').style.display = 'flex';
+}
+
+})('c3'); aptrinsic('track', 'release_card3', {'clicked': 'true', 'clickedNumber':1, 'clickedBoolean':true});">
+        <div id="c3_title">
+            <strong class="card_header">
+                <img src="https://storage.googleapis.com/froala-upload-prod/0b669fad-5e70-4250-a06f-0cd41e9feb3d/image/ce5a2f99-2fc1-43b1-86ae-1132e4677096.png" style="width: 25px; text-align: center; height: 25px;" width="25" height="25" id="px-8a4e616e-4c16-4e50-8c98-115365ddaf02">
+                    <span style="font-size: 16px; color: rgb(52, 56, 58); display: flex;">Segments Enhancements</span>
+                </strong>
+            </div>
+            <div class="card_desc" id="c3_desc" style="display: none; text-align: left; margin-left: 8px;">
+                <span style="color: rgb(104, 93, 93); font-size: 12px;">Quickly identify, filter, and use your segments with enhanced segment categorization. Categories include:
+                Real-Time Segments - Segments that are built based on rules in Gainsight PX and updated in real-time.
+
+Segments - CSV segments and External Segments (segments that are pushed into PX from external systems such as Adobe Experience Platform).
+
+
+
+<div class="card" id="c4_left" onclick="(function (card) {
+let isSelectedCard = document.getElementById(`${card}_left`).classList.contains('card-selected');
+
+document.getElementById('none_right').style.display = 'none';
+
+Array.from(document.getElementsByClassName('card')).forEach(item => { 
+item.classList.remove('card-selected');
+    item.classList.add('card');
+})
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_left`).classList.remove('card-selected'); 
+} else {
+document.getElementById(`${card}_left`).classList.add('card-selected'); 
+}
+
+Array.from(document.getElementsByClassName('card_desc')).forEach(item => { 
+    item.style.display = 'none';
+})
+
+if (isSelectedCard) {
+  document.getElementById(`${card}_desc`).style.display = 'none';
+} else {
+  document.getElementById(`${card}_desc`).style.display = 'block';
+}
+
+Array.from(document.getElementsByClassName('card_right')).forEach(item => { 
+  item.style.display = 'none';
+})
+
+if (isSelectedCard) {
+document.getElementById(`${card}_right`).style.display = 'none';  
+} else {
+document.getElementById(`${card}_right`).style.display = 'flex';  
+}
+
+if (!document.querySelector('.card-selected')) {
+document.getElementById('none_right').style.display = 'flex';
+}
+
+})('c4'); aptrinsic('track', 'release_card4', {'clicked': 'true', 'clickedNumber':1, 'clickedBoolean':true});">
+            <div id="c4_title">
+                <strong class="card_header">
+                    <img src="https://storage.googleapis.com/froala-upload-prod/0b669fad-5e70-4250-a06f-0cd41e9feb3d/image/f4050c9a-44a7-4e30-829f-6b5c02ff42f2.png" style="width: 25px; text-align: center; height: 25px;" width="25" height="25" id="px-24f9ee96-102c-4fcc-b021-2f764bcb98f0">
+                        <span style="font-size: 16px; color: rgb(52, 56, 58); display: flex;">
+                            <strong>CTA Analytics Enhancements</strong>
+                        </span>
+                    </strong>
+                </div>
+                <div class="card_desc" id="c4_desc" style="display: none; text-align: left; margin-left: 8px;">
+                    <span style="color: rgb(104, 93, 93); font-size: 12px;">The new CTA Analytics tab in In-App Performance reports enables you to track the performance of multiple CTAs across users and accounts. Leverage detailed CTA analytics to understand engagement impact and optimize the user experience. </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>

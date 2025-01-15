@@ -6,10 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Profile.css">
     <title>Profile</title>
+    <script src="Script.js"></script>
+
+    <style>
+         body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .menu-bar {
+            width: 200px;
+            height: 100vh; /* Full height of the viewport */
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+        }
+        .menu-bar a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid #444;
+        }
+        .menu-bar a:hover {
+            background-color: #575757;
+        }
+    </style>
+    </style>
+
 
 </head>
 
 <body >
+
+    <div class="menu-bar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div style="margin-left: 220px; padding: 20px;">
+        <h1>Welcome to the Website</h1>
+        <p>Content goes here.</p>
+    </div>
 
     <div class="header">
         <h1>News Application</h1>
@@ -68,7 +109,7 @@
     function logOut() {
         localStorage.removeItem("name");
         localStorage.removeItem("email");
-        window.location.href = "LogInForm.html";
+        window.location.href = "index.html";
     }
 </Script>
 
