@@ -101,7 +101,7 @@ window.location.href = "news.html";
        alert("method called");
       var currentURL = window.location.href;
        console.log(currentURL + " this is the current URL");
-      aptrinsic('set', 'globalContext', { 'URL': currentURL });
+      aptrinsic('set', 'testGlobal', { 'URL': currentURL });
      });
 
 document.addEventListener("DOMContentLoaded", function() {
