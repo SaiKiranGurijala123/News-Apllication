@@ -71,6 +71,9 @@
 }
 );
 
+alert("hello")
+aptrinsic('set', 'globalContext', {"Lagdata":"english", "status":"truee"});
+
 window.location.href = "news.html";
 
 
