@@ -52,20 +52,22 @@
 
             var userid = email.substring(0,3);
 
-                aptrinsic("identify",
+            
 
-{
+//                 aptrinsic("identify",
+
+// {
     
-    // User Fields
-    "id": userid, // Required for logged in app users
-    "email": email,
-},
-{
-    // Account Fields
-    "id": "IBM", // Required
-    "name": "International Business Machine",
-}
-);
+//     // User Fields
+//     "id": userid, // Required for logged in app users
+//     "email": email,
+// },
+// {
+//     // Account Fields
+//     "id": "IBM", // Required
+//     "name": "International Business Machine",
+// }
+// );
 
 alert("hello")
 aptrinsic('set', 'abcd', {"Lagdata":"englishsss", "status":"truee"});
@@ -77,6 +79,26 @@ window.location.href = "news.html";
             alert("Login Failed");
         }
     }
+
+    function getcall(){
+      alert("identifi call passesd")
+      aptrinsic("identify",
+
+        {
+            
+            // User Fields
+            "id": userid, // Required for logged in app users
+            "email": email,
+        },
+        {
+            // Account Fields
+            "id": "IBM", // Required
+            "name": "International Business Machine",
+        }
+        );
+
+    }
+    
 
 
 
@@ -142,7 +164,7 @@ window.location.href = "news.html";
               var c = t.getElementsByTagName("script")[0];
               c.parentNode.insertBefore(r, c);
           })(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-FZEPRMBRBNYU-2");
-  
+  getcall();
       } else {
           alert("2nd px tag is loading...");
   
@@ -159,6 +181,7 @@ window.location.href = "news.html";
               var c = t.getElementsByTagName("script")[0];
               c.parentNode.insertBefore(r, c);
           })(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-HMVJXVOOAUYX-2");
+          getcall();
       }
   });
   
