@@ -1,5 +1,9 @@
 // LogIn Form Script
-
+(function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
+    (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
+  var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
+  var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
+})(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-HMVJXVOOAUYX-2");
 
     function validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -52,22 +56,20 @@
 
             var userid = email.substring(0,3);
 
-            
+                aptrinsic("identify",
 
-//                 aptrinsic("identify",
-
-// {
+{
     
-//     // User Fields
-//     "id": userid, // Required for logged in app users
-//     "email": email,
-// },
-// {
-//     // Account Fields
-//     "id": "IBM", // Required
-//     "name": "International Business Machine",
-// }
-// );
+    // User Fields
+    "id": userid, // Required for logged in app users
+    "email": email,
+},
+{
+    // Account Fields
+    "id": "IBM", // Required
+    "name": "International Business Machine",
+}
+);
 
 alert("hello")
 aptrinsic('set', 'abcd', {"Lagdata":"englishsss", "status":"truee"});
@@ -79,26 +81,6 @@ window.location.href = "news.html";
             alert("Login Failed");
         }
     }
-
-    function getcall(){
-      alert("identifi call passesd")
-      aptrinsic("identify",
-
-        {
-            
-            // User Fields
-            "id": userid, // Required for logged in app users
-            "email": email,
-        },
-        {
-            // Account Fields
-            "id": "IBM", // Required
-            "name": "International Business Machine",
-        }
-        );
-
-    }
-    
 
 
 
@@ -115,76 +97,12 @@ window.location.href = "news.html";
     //   alert("method called");
     // }
 // for displaying the two bot basesd on the URL
-    //  document.addEventListener("DOMContentLoaded", function() {
-    //   var currentURL = window.location.href;
-    //   console.log(currentURL + " this is the current URL");
-
-    //   if(currentURL==="https://saikirangurijala123.github.io/News-Apllication/GetDetails.html"){
-    //     alert("1st px tag");
-
-    //     (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
-    //       (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
-    //     var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
-    //     var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
-    //   })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-FZEPRMBRBNYU-2");
-    
-
-    //   }else{
-    //  //aptrinsic('set', 'testGlobal', { 'URL': currentURL });
-
-    //   (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
-    //     (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
-    //   var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
-    //   var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
-    // })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-HMVJXVOOAUYX-2");
-    //    alert("method calleddddd")
-
-
-     
-    //  }});
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-      var currentURL = window.location.pathname; // Using pathname to avoid query param issues
-      console.log("Current pathname: " + currentURL); // Debug log to check current pathname
-  
-      if (currentURL === "/News-Apllication/GetDetails.html") {
-          alert("1st px tag is loading...");
-  
-          (function (n, t, a, e, co) {
-              var i = "aptrinsic";
-              n[i] = n[i] || function () {
-                  (n[i].q = n[i].q || []).push(arguments);
-              };
-              n[i].p = e;
-              n[i].c = co;
-              var r = t.createElement("script");
-              r.async = !0;
-              r.src = a + "?a=" + e;
-              var c = t.getElementsByTagName("script")[0];
-              c.parentNode.insertBefore(r, c);
-          })(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-FZEPRMBRBNYU-2");
-  getcall();
-      } else {
-          alert("2nd px tag is loading...");
-  
-          (function (n, t, a, e, co) {
-              var i = "aptrinsic";
-              n[i] = n[i] || function () {
-                  (n[i].q = n[i].q || []).push(arguments);
-              };
-              n[i].p = e;
-              n[i].c = co;
-              var r = t.createElement("script");
-              r.async = !0;
-              r.src = a + "?a=" + e;
-              var c = t.getElementsByTagName("script")[0];
-              c.parentNode.insertBefore(r, c);
-          })(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-HMVJXVOOAUYX-2");
-          getcall();
-      }
-  });
-  
+     document.addEventListener("DOMContentLoaded", function() {
+       alert("method calleddddd");
+      var currentURL = window.location.href;
+       console.log(currentURL + " this is the current URL");
+      aptrinsic('set', 'testGlobal', { 'URL': currentURL });
+     });
 
 document.addEventListener("DOMContentLoaded", function() {
     const newsContainer = document.getElementById('news-container');
