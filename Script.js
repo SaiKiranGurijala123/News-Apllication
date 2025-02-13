@@ -93,33 +93,75 @@ window.location.href = "news.html";
     //   alert("method called");
     // }
 // for displaying the two bot basesd on the URL
-     document.addEventListener("DOMContentLoaded", function() {
-      var currentURL = window.location.href;
-      console.log(currentURL + " this is the current URL");
+    //  document.addEventListener("DOMContentLoaded", function() {
+    //   var currentURL = window.location.href;
+    //   console.log(currentURL + " this is the current URL");
 
-      if(currentURL==="https://saikirangurijala123.github.io/News-Apllication/GetDetails.html"){
-        alert("1st px tag");
+    //   if(currentURL==="https://saikirangurijala123.github.io/News-Apllication/GetDetails.html"){
+    //     alert("1st px tag");
 
-        (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
-          (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
-        var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
-        var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
-      })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-FZEPRMBRBNYU-2");
+    //     (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
+    //       (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
+    //     var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
+    //     var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
+    //   })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-FZEPRMBRBNYU-2");
     
 
-      }else{
-     //aptrinsic('set', 'testGlobal', { 'URL': currentURL });
+    //   }else{
+    //  //aptrinsic('set', 'testGlobal', { 'URL': currentURL });
 
-      (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
-        (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
-      var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
-      var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
-    })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-HMVJXVOOAUYX-2");
-       alert("method calleddddd")
+    //   (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
+    //     (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
+    //   var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
+    //   var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
+    // })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-HMVJXVOOAUYX-2");
+    //    alert("method calleddddd")
 
 
      
-     }});
+    //  }});
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var currentURL = window.location.pathname; // Using pathname to avoid query param issues
+      console.log("Current pathname: " + currentURL); // Debug log to check current pathname
+  
+      if (currentURL === "/News-Apllication/GetDetails.html") {
+          alert("1st px tag is loading...");
+  
+          (function (n, t, a, e, co) {
+              var i = "aptrinsic";
+              n[i] = n[i] || function () {
+                  (n[i].q = n[i].q || []).push(arguments);
+              };
+              n[i].p = e;
+              n[i].c = co;
+              var r = t.createElement("script");
+              r.async = !0;
+              r.src = a + "?a=" + e;
+              var c = t.getElementsByTagName("script")[0];
+              c.parentNode.insertBefore(r, c);
+          })(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-FZEPRMBRBNYU-2");
+  
+      } else {
+          alert("2nd px tag is loading...");
+  
+          (function (n, t, a, e, co) {
+              var i = "aptrinsic";
+              n[i] = n[i] || function () {
+                  (n[i].q = n[i].q || []).push(arguments);
+              };
+              n[i].p = e;
+              n[i].c = co;
+              var r = t.createElement("script");
+              r.async = !0;
+              r.src = a + "?a=" + e;
+              var c = t.getElementsByTagName("script")[0];
+              c.parentNode.insertBefore(r, c);
+          })(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-HMVJXVOOAUYX-2");
+      }
+  });
+  
 
 document.addEventListener("DOMContentLoaded", function() {
     const newsContainer = document.getElementById('news-container');
