@@ -97,13 +97,17 @@ window.location.href = "news.html";
       var currentURL = window.location.href;
       console.log(currentURL + " this is the current URL");
 
-      (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
+      if(currentURL==="https://saikirangurijala123.github.io/News-Apllication/GetDetails.html"){
+        alert("1st px tag");
+
+        (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
           (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
         var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
         var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
       })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-FZEPRMBRBNYU-2");
     
 
+      }else{
      //aptrinsic('set', 'testGlobal', { 'URL': currentURL });
 
       (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
@@ -115,7 +119,7 @@ window.location.href = "news.html";
 
 
      
-     });
+     }});
 
 document.addEventListener("DOMContentLoaded", function() {
     const newsContainer = document.getElementById('news-container');
