@@ -59,9 +59,45 @@
             margin-top: -10px;
             margin-bottom: 10px;
         }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 150px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 8px 0;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
     </style>
 </head>
 <body>
+
+    <div class="dropdown">
+        <button onclick="toggleDropdown()">Click Me</button>
+        <div class="dropdown-content" id="dropdownList">
+            <a href="#">Option 1</a>
+            <a href="#">Option 2</a>
+            <a href="#">Option 3</a>
+        </div>
+    </div>
+
     <div class="payment-form">
         <h2>Payment Details</h2>
         <form action="" method="post">
@@ -81,5 +117,18 @@
         </form>
     </div>
     <script src="Script.js"></script>
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownList");
+            dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+        }
+
+        // Close dropdown if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('button')) {
+                document.getElementById("dropdownList").style.display = "none";
+            }
+        };
+    </script>
 </body>
 </html>
