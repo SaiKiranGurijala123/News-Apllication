@@ -8,69 +8,39 @@
     <title>News</title>
     <script src="Script.js" defer></script>
     <style>
-        .svg-container {
-            width: 200px;
-            height: 200px;
-            background-color: #f0f0f0; /* Light gray background color */
-            border: 1px solid #ccc; /* Light gray border */
+.dropdown {
+            position: relative;
+            display: inline-block;
         }
-        .rectangle {
-            fill: lightblue; /* Fill color for the rectangle */
-            stroke: navy; /* Stroke color for the rectangle */
-            stroke-width: 3; /* Stroke width for the rectangle */
+        
+        .dropbtn {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
         }
-        .circle {
-            fill: orange; /* Fill color for the circle */
-            stroke: darkorange; /* Stroke color for the circle */
-            stroke-width: 3; /* Stroke width for the circle */
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
         }
-        .line {
-            stroke: green; /* Stroke color for the line */
-            stroke-width: 2; /* Stroke width for the line */
+
+        .dropdown-content a {
+            color: black;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
         }
-        .dropdown {
-    position: relative;
-    display: inline-block;
-}
 
-.dropbtn {
-    background-color: #3498db;
-    color: white;
-    padding: 12px 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 160px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 10px 14px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #2980b9;
-}
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
     </style>
 
 </head>
@@ -186,15 +156,7 @@
     <button id="myButton" disabled>Click Me</button>
 
 </div>
-<div class="dropdown">
-    <button class="dropbtn">Select an Option</button>
-    <div class="dropdown-content">
-        <a href="#">Option 1</a>
-        <a href="#">Option 2</a>
-        <a href="#">Option 3</a>
-    </div>
-</div>
-   
+
 
 <div class="dropdown">
     <button class="dropbtn" onclick="toggleDropdown()">Select an Option</button>
