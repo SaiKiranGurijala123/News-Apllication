@@ -195,7 +195,23 @@
     </div>
 </div>
    
+
+<div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown()">Select an Option</button>
+    <div class="dropdown-content" id="dropdownMenu">
+        <a href="#">Option 1</a>
+        <a href="#">Option 2</a>
+        <a href="#">Option 3</a>
+    </div>
+</div>
+
 <Script>
+
+function toggleDropdown() {
+        var dropdown = document.getElementById("dropdownMenu");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
   // Toggle dropdown visibility
   document.querySelector('.dropdown-btn').addEventListener('click', function () {
         document.querySelector('.dropdown-content').classList.toggle('show');
