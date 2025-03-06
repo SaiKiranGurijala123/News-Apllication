@@ -97,7 +97,7 @@ window.location.href = "news.html";
     //   alert("method called");
     // }
 // for displaying the two bot basesd on the URL
-     document.addEventListener("DOMContentLoaded", function() {
+     document.addEventListener("load", function() {
       
       var currentURL = window.location.href;
        console.log(currentURL + " this is the current URL");
