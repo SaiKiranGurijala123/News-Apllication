@@ -104,6 +104,12 @@ window.location.href = "news.html";
       aptrinsic('set', 'user', { 'URL': currentURL });
      });
 
+     window.addEventListener("popstate", function() {
+      var updatedURL = window.location.href;
+      console.log(updatedURL + " - URL after back button click");
+      aptrinsic('set', 'user', { 'URL': updatedURL });
+  });
+
 document.addEventListener("DOMContentLoaded", function() {
     const newsContainer = document.getElementById('news-container');
 
