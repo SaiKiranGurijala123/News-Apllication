@@ -52,9 +52,90 @@
         ::placeholder {
             color: #888;
         }
+
+
+
+    /*code for menu*/
+
+    body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            height: 100%;
+            width: 250px;
+            background-color: #333;
+            color: white;
+            overflow-x: hidden;
+            transition: left 0.3s ease;
+            padding: 20px;
+        }
+
+        .side-menu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+        }
+
+        .side-menu a:hover {
+            background-color: #575757;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 99998;
+        }
     </style>
 </head>
 <body>
+
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+
+    <div class="side-menu" id="sideMenu">
+        <h2>Side Menu</h2>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById('sideMenu');
+            const menuOverlay = document.getElementById('menuOverlay');
+            if (sideMenu.style.left === '-250px') {
+                sideMenu.style.left = '0';
+                menuOverlay.style.display = 'block';
+            } else {
+                sideMenu.style.left = '-250px';
+                menuOverlay.style.display = 'none';
+            }
+        }
+    </script>
+
+
+
     <form action="" method="post">
         <input id="address" name="address" type="text" placeholder="Address"><br>
         <input id="fName" name="fName" type="text" placeholder="Father name"><br>

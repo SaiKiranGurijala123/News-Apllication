@@ -9,18 +9,19 @@
     <script src="Script.js"></script>
 
     <style>
-         body {
+        body {
             margin: 0;
             font-family: Arial, sans-serif;
         }
         .menu-bar {
             width: 200px;
-            height: 100vh; /* Full height of the viewport */
+            height: 100vh;
             background-color: #333;
             position: fixed;
             top: 0;
-            left: 0;
+            left: -200px; /* Hidden by default */
             overflow-y: auto;
+            transition: 0.3s;
         }
         .menu-bar a {
             display: block;
@@ -32,7 +33,30 @@
         .menu-bar a:hover {
             background-color: #575757;
         }
-    </style>
+        .menu-icon {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #333;
+            z-index: 1000;
+        }
+        .menu-icon:hover {
+            color: #555;
+        }
+        .content {
+            margin-left: 0; /* No margin when menu is hidden */
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+        .menu-open .menu-bar {
+            left: 0; /* Show menu */
+        }
+        .menu-open .content {
+            margin-left: 200px; /* Push content */
+        }
+   
     </style>
 
 
@@ -45,13 +69,21 @@
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-    </div>
-    <div style="margin-left: 220px; padding: 20px;">
-        <h1>Welcome to the Website</h1>
-        <p>Content goes here.</p>
+        <a href="#contact">Contactsss</a>
     </div>
 
+    <!-- Content -->
+    <div class="content">
+        <h1>Welcome to the Website</h1>
+        <p>Click the menu icon to open the menu.</p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            // Toggle the "menu-open" class on the body
+            document.body.classList.toggle('menu-open');
+        }
+    </script>
     <div class="header">
         <h1>News Application</h1>
         <div class="menu">

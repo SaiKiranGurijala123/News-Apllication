@@ -1,10 +1,13 @@
 // LogIn Form Script
+
+window.onload = function(){
+  alert("loaded")
 (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
     (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
   var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
   var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
-})(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-HMVJXVOOAUYX-2");
-
+})(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-9676HXLUV76Z-2");
+}
     function validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
@@ -101,6 +104,10 @@ window.location.href = "news.html";
     //   aptrinsic('set', 'user', { 'URL': currentURL });
     // });
 
+
+    //Globalcontext
+
+  
 document.addEventListener("DOMContentLoaded", function() {
     const newsContainer = document.getElementById('news-container');
 
@@ -157,7 +164,6 @@ function logOut(){
 }
 
 function getEData(){
-    alert("fsdfs")
     
         let address = document.getElementById("address").value;
         let fname = document.getElementById("fName").value;
