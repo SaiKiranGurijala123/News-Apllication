@@ -74,6 +74,9 @@ window.onload = function(){
 }
 );
 
+alert("hello")
+aptrinsic('set', 'abcd', {"Lagdata":"englishsss", "status":"truee"});
+
 window.location.href = "news.html";
 
 
@@ -97,12 +100,18 @@ window.location.href = "news.html";
     //   alert("method called");
     // }
 // for displaying the two bot basesd on the URL
-    // document.addEventListener("DOMContentLoaded", function() {
-    //   alert("method called");
-    //   var currentURL = window.location.href;
-    //   console.log(currentURL + " this is the current URL");
-    //   aptrinsic('set', 'user', { 'URL': currentURL });
-    // });
+     document.addEventListener("DOMContentLoaded", function() {
+      alert("add")
+      var currentURL = window.location.href;
+       console.log(currentURL + " this is the current URL");
+      aptrinsic('set', 'user', { 'URL': currentURL });
+     });
+
+     window.addEventListener("popstate", function() {
+      var updatedURL = window.location.href;
+      console.log(updatedURL + " - URL after back button click");
+      aptrinsic('set', 'user', { 'URL': updatedURL });
+  });
 
 
     //Globalcontext
