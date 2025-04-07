@@ -6,7 +6,7 @@ window.onload = function(){
     (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
   var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
   var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
-})(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-9676HXLUV76Z-2");
+})(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-HMVJXVOOAUYX-2");
 }
     function validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -74,9 +74,6 @@ window.onload = function(){
 }
 );
 
-alert("hello")
-aptrinsic('set', 'abcd', {"Lagdata":"englishsss", "status":"truee"});
-
 window.location.href = "news.html";
 
 
@@ -100,18 +97,12 @@ window.location.href = "news.html";
     //   alert("method called");
     // }
 // for displaying the two bot basesd on the URL
-     document.addEventListener("DOMContentLoaded", function() {
-      alert("add")
-      var currentURL = window.location.href;
-       console.log(currentURL + " this is the current URL");
-      aptrinsic('set', 'user', { 'URL': currentURL });
-     });
-
-     window.addEventListener("popstate", function() {
-      var updatedURL = window.location.href;
-      console.log(updatedURL + " - URL after back button click");
-      aptrinsic('set', 'user', { 'URL': updatedURL });
-  });
+    // document.addEventListener("DOMContentLoaded", function() {
+    //   alert("method called");
+    //   var currentURL = window.location.href;
+    //   console.log(currentURL + " this is the current URL");
+    //   aptrinsic('set', 'user', { 'URL': currentURL });
+    // });
 
 
     //Globalcontext
