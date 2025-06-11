@@ -78,6 +78,7 @@
     <div class="header">
         <h1>News Application</h1>
         <div class="menu">
+            
             <button onclick="buttonclick()" id="new-selector"><a href="Profile.html">Profile</a></button>
             <button onclick="logOut()">LogOut</button>
             <button id="detail_btn"><a href="GetDetails.html">Add Details</a></button>
@@ -87,7 +88,7 @@
             <span data-gainsight="testdb" >Test D&B</span>
             <button id="dselector" DuplicateValue="duplicateselector">Test1Button11</button>
             <button id="dselector" DuplicateValue="duplicateselector">Test2Button22</button>
-
+           
 
 
 
@@ -95,6 +96,18 @@
         <a href="Payments.html">payment 2</a>
         
     </div>
+    <!-- <div id="specialButtonWrapper">
+        <button id="specialButton" style="display: none;  margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      text-align: center;">Special Button</button>
+    </div> -->
     <div class="container">
         
         
@@ -102,7 +115,7 @@
             <!-- News articles will be displayed here -->
         </div>
     </div>
-
+ 
     <div class="dropdown">
         <div class="dropdown-btn">Select options <span class="selected-options">None</span></div>
         <div class="dropdown-content">
@@ -178,7 +191,7 @@
 
     <label>
         <input type="checkbox" id="myCheckbox" onclick="toggleButton()">
-        Check this box to enable the button
+        Check this box to enable the buttondjadaisd
     </label>
 
     <br><br>
@@ -222,6 +235,15 @@
             document.querySelector('.dropdown-content').classList.remove('show');
         }
     });
+    // Conditionally show the special button
+    const email = localStorage.getItem('loggedInUser');
+    if (email === 'testbutton@gmai.com') {
+      const specialButton = document.getElementById('specialButton');
+      if (specialButton) {
+        specialButton.style.display = 'inline-block';
+      }
+    }
+
 </Script>
    
 

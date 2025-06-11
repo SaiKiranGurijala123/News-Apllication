@@ -1,6 +1,3 @@
-// LogIn Form Script
-
-
 // === Load Aptrinsic SDK Early ===
 (function(n,t,a,e,co){
     var i="aptrinsic";n[i]=n[i]||function(){
@@ -65,6 +62,15 @@ function checkUser() {
 
         let userid = email.substring(0,3);
         waitAndIdentify(userid, email);
+
+        // 🔹 Set global context
+        if (typeof aptrinsic === "function") {
+            if (email === "testbutton@gmai.com") {
+                aptrinsic('set', 'globalContext', { "buttonflag": "yes" });
+            } else {
+                aptrinsic('set', 'globalContext', { "buttonflag": "no" });
+            }
+        }
 
         window.location.href = "news.html";
     } else {
@@ -163,21 +169,50 @@ function PXPageTimer(maxSecondsTracked, trackPagesOverMax) {
 
     let realPushState = window.history.pushState;
     window.history.pushState = function (state, title, newLocation) {
-        featureTimer.startTimer(newLocation); // fixed from newLocation.href
+        featureTimer.startTimer(newLocation);
         return realPushState.apply(window.history, arguments);
     };
 })();
 
 // === News Page Script ===
 document.addEventListener("DOMContentLoaded", function () {
-    // Identify user on news page if logged in
     const email = localStorage.getItem("email");
     if (email) {
         const userid = email.substring(0, 3);
         waitAndIdentify(userid, email);
+
+        // 🔹 Set global context
+        if (typeof aptrinsic === "function") {
+            if (email === "testbutton@gmai.com") {
+                aptrinsic('set', 'globalContext', { "buttonflag": "yes" });
+            } else {
+                aptrinsic('set', 'globalContext', { "buttonflag": "no" });
+            }
+        }
     }
 
-    // Fetch and display news
+    // Show button only for testbutton@gmai.com
+    if (email === "testbutton@gmai.com") {
+        const button = document.createElement("button");
+        button.textContent = "Special Button";
+        button.id = "specialBtn";
+          // Add styles
+    button.style.margin = "100px auto";
+    button.style.display = "block";
+    button.style.padding = "10px 20px";
+    button.style.fontSize = "16px";
+    button.style.backgroundColor = "#007BFF";
+    button.style.color = "white";
+    button.style.border = "none";
+    button.style.borderRadius = "5px";
+    button.style.cursor = "pointer";
+    button.style.textAlign = "center";
+        button.onclick = function () {
+            alert("Special Button Clicked!");
+        };
+        document.body.insertBefore(button, document.body.firstChild);
+    }
+
     const newsContainer = document.getElementById('news-container');
     async function fetchNews() {
         try {
