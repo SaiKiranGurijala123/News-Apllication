@@ -2,12 +2,9 @@
 
 var config = {         // url filters example
 	
-	filterUrls : ["*News-Apllication*"], // list of URLs to filter or exclude
+	filterUrls : ["News-Apllication/*",], // list of URLs to filter or exclude
 	filterType : "mask", // "exclude" OR "mask"
 	
-	// query parameter filters example    
-	namedParamFilter : ["internalID"],
-	nameParamFilterType : "exclude" // "exclude" OR "mask"
 };
 (function(n,t,a,e,co){
     var i="aptrinsic";n[i]=n[i]||function(){
