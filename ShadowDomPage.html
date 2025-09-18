@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShadowDomPage</title> 
+  <script src="Script.js"></script>
+</head>
+<body>
+
+<!-- New big div outside the shadow host -->
+<div style="height: 300px; width: 100%; background-color: lightblue; margin-bottom: 20px;">
+  <h2>External Container</h2>
+  <p>This content is outside the Shadow DOM.</p>
+</div>
+
+<!-- Shadow DOM host -->
+<div id="host"></div>
+
+<script>
+  const hostDiv = document.getElementById("host");
+  const shadow = hostDiv.attachShadow({ mode: "open" });
+
+  shadow.innerHTML = `
+    <div style="height: 600px; width: 600px; background-color: lightgray;">
+      <h1>Shadow DOM Example</h1>
+      <p>This is a simple example of using Shadow DOM to encapsulate styles and functionality.</p>
+      <button id="myButton">Click Me</button>
+    </div>
+    <style>
+      button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  `;
+
+  shadow.getElementById("myButton").addEventListener("click", () => {
+    alert("Button inside Shadow DOM clicked!");
+  });
+</script>
+
+</body>
+</html>

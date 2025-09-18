@@ -1,17 +1,11 @@
 // === Load Aptrinsic SDK Early ===
 
-var config = {         // url filters example
-	
-	filterUrls : ["News-Apllication/*",], // list of URLs to filter or exclude
-	filterType : "mask", // "exclude" OR "mask"
-	
-};
 (function(n,t,a,e,co){
     var i="aptrinsic";n[i]=n[i]||function(){
         (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
     var r=t.createElement("script");r.async=!0;r.src=a+"?a="+e;
     var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
-})(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-HMVJXVOOAUYX-2",config);
+})(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-HMVJXVOOAUYX-2",{kcAllowedFuncNames : ["openZendeskPopup"]});
 
 // === Utility ===
 function validateEmail(email) {
@@ -19,13 +13,17 @@ function validateEmail(email) {
     return re.test(email);
 }
 
+var sai;
+var kiran;
+kiran="2025-07-16T05:10:55-07:00"
 function waitAndIdentify(userId, email) {
     const checkInterval = setInterval(() => {
         if (typeof aptrinsic === "function") {
             clearInterval(checkInterval);
             aptrinsic("identify", {
                 id: userId,
-                email: email
+                email:email,
+                dateOfJoing:"2025-07-16T05:10:55-07:00"
             }, {
                 id: "IBM",
                 name: "International Business Machine"
@@ -70,20 +68,41 @@ function checkUser() {
         let userid = email.substring(0,3);
         waitAndIdentify(userid, email);
 
+        
+
         // 🔹 Set global context
-        if (typeof aptrinsic === "function") {
-            if (email === "testbutton@gmai.com") {
-                aptrinsic('set', 'globalContext', { "buttonflag": "yes" });
-            } else {
-                aptrinsic('set', 'globalContext', { "buttonflag": "no" });
-            }
-        }
+        // if (typeof aptrinsic === "function") {
+        //     if (email === "testbutton@gmai.com") {
+        //         aptrinsic('set', 'globalContext', { "buttonflag": "yes" });
+        //     } else {
+        //         aptrinsic('set', 'globalContext', { "buttonflag": "no" });
+        //     }
+        // }
 
         window.location.href = "news.html";
     } else {
         alert("Login Failed");
     }
 }
+
+(function () {
+    function handleURLChange() {
+        const currentURL = window.location.href;
+        console.log("Current page URL:", currentURL);
+
+        if (currentURL.includes("news.html")) {
+            aptrinsic('set', 'globalContext', { "currentPageURL": "yes" });
+        } else {
+            aptrinsic('set', 'globalContext', { "currentPageURL": "noo" });
+        }
+    }
+
+    window.addEventListener('load', handleURLChange);
+})();
+
+
+
+
 
 function logOut(){
     localStorage.removeItem("name");
@@ -183,8 +202,12 @@ function PXPageTimer(maxSecondsTracked, trackPagesOverMax) {
 
 // === News Page Script ===
 document.addEventListener("DOMContentLoaded", function () {
+     const names = "sai kiran";
     const email = localStorage.getItem("email");
+   
     if (email) {
+        aptrinsic('set', 'globalContext', {email: "Whats New 2024.1",names: "2024.1"});
+
         const userid = email.substring(0, 3);
         waitAndIdentify(userid, email);
 
@@ -197,6 +220,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
+
+
 
     // Show button only for testbutton@gmai.com
     if (email === "testbutton@gmai.com") {
@@ -215,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
     button.style.cursor = "pointer";
     button.style.textAlign = "center";
         button.onclick = function () {
-            alert("Special Button Clicked!");
+              location.reload();
         };
         document.body.insertBefore(button, document.body.firstChild);
     }
@@ -257,3 +282,82 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fetchNews();
 });
+
+function goToProfile() {
+    const username = localStorage.getItem("email");
+    if (!username) {
+        alert("Please login first.");
+        window.location.href = "index.html"; // redirect to login
+        return;
+    }
+
+    // Only include user in the URL
+    const profileUrl = `profile.html?user=${encodeURIComponent(username)}`;
+    window.location.href = profileUrl;
+}
+
+        function addGlobalContect(){
+            aptrinsic('track', 'solution', {
+
+  action: "opened"
+
+});
+aptrinsic('set', 'globalContext', { "TestignGC": "Yes" });
+console.log("gsggfd");
+alert("test1")
+
+}
+
+function removeGlobalContect(){
+aptrinsic('remove', 'globalContext', ["TestignGC"]);
+alert("test2")
+}
+function addGlobalContect2(){
+aptrinsic('set', 'globalContext', { "TestignGC": "Yes2" });
+console.log("Global contex");
+alert("test3")
+}
+
+ function openZendeskPopup() {
+    const closeBtn = document.querySelector('.px-header-close');
+
+    if (closeBtn) {
+        simulateRealClick(closeBtn);
+        console.log("In If statement");
+    } else {
+        console.log("In else statement - button not found yet");
+    }
+    console.log("openZendeskPopup called");
+}
+
+// Delay execution until DOM is ready
+document.addEventListener("DOMContentLoaded", openZendeskPopup);
+
+
+ function simulateRealClick(element) {
+					if (!element) return;
+
+					const eventDown = new MouseEvent('mousedown', {
+						bubbles: true,
+						cancelable: true,
+						view: window
+					});
+					const eventUp = new MouseEvent('mouseup', {
+						bubbles: true,
+						cancelable: true,
+						view: window
+					});
+					const eventClick = new MouseEvent('click', {
+						bubbles: true,
+						cancelable: true,
+						view: window
+					});
+
+					element.dispatchEvent(eventDown);
+					element.dispatchEvent(eventUp);
+					element.dispatchEvent(eventClick);
+
+				}
+
+
+

@@ -56,6 +56,30 @@
         .menu-open .content {
             margin-left: 200px; /* Push content */
         }
+
+         /* Optional styling to reflect disabled state */
+    .rt-action-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+    }
+
+    .test_btn--mark-reviewed {
+      background-color: green;
+    }
+
+    .test_btn--mark-not-reviewed {
+      background-color: red;
+    }
+
+    .disabled-btn {
+      opacity: 0.5;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
    
     </style>
 
@@ -71,6 +95,67 @@
         <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contactsss</a>
     </div>
+
+
+  
+     <button id="reviewBtn"
+          class="rt-action-button large test_btn--mark-reviewed"
+          type="button"
+          data-dd-action-name="Search.ActionPanel.Review">
+    Review
+  </button>
+
+  <button id="enableBtn" type="button">
+    Enable Review Button
+  </button>
+
+  <script>
+    const reviewBtn = document.getElementById('reviewBtn');
+    const enableBtn = document.getElementById('enableBtn');
+
+    // Disable the review button
+    function disableReviewBtn() {
+      reviewBtn.classList.remove('test_btn--mark-reviewed');
+      reviewBtn.classList.add('-undo', 'test_btn--mark-not-reviewed', 'disabled-btn');
+      reviewBtn.setAttribute('data-hover-text', 'Not Reviewed?');
+      reviewBtn.setAttribute('data-dd-action-name', 'Search.ActionPanel.UndoReview');
+      reviewBtn.disabled = true;
+
+      // Save state
+      localStorage.setItem('reviewBtnDisabled', 'true');
+    }
+
+    // Enable the review button
+    function enableReviewBtn() {
+      reviewBtn.classList.remove('-undo', 'test_btn--mark-not-reviewed', 'disabled-btn');
+      reviewBtn.classList.add('test_btn--mark-reviewed');
+      reviewBtn.removeAttribute('data-hover-text');
+      reviewBtn.setAttribute('data-dd-action-name', 'Search.ActionPanel.Review');
+      reviewBtn.disabled = false;
+
+      // Save state
+      localStorage.setItem('reviewBtnDisabled', 'false');
+    }
+
+    // Load saved state
+    if (localStorage.getItem('reviewBtnDisabled') === 'true') {
+      disableReviewBtn();
+    }
+
+    // Disable on Review button click
+    reviewBtn.addEventListener('click', () => {
+      disableReviewBtn();
+    });
+
+    // Enable on Enable button click
+    enableBtn.addEventListener('click', () => {
+      enableReviewBtn();
+    });
+  </script>
+
+
+
+    
 
     <!-- Content -->
     <div class="content">
@@ -135,6 +220,7 @@
 
 
     </div>
+   
 
 </body>
 <Script>
