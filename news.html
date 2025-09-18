@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="news.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>News</title>
     <script src="Script.js" defer></script>
     <style>
@@ -74,12 +75,15 @@
     </style>
 
 </head>
+<script>
+(function(w,d,s){var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='//embeddable-widgets-euw1.insided.com/hugo-en.insided-conversational.js';f.parentNode.insertBefore(j,f);})(window,document,'script');
+</script>
 <body>
     <div class="header">
         <h1>News Application</h1>
         <div class="menu">
             
-            <button onclick="buttonclick()" id="new-selector"><a href="Profile.html">Profile</a></button>
+            <button onclick="goToProfile()" id="new-selector">Profile</button>
             <button onclick="logOut()">LogOut</button>
             <button id="detail_btn"><a href="GetDetails.html">Add Details</a></button>
             <button id="payment-id" payment-test="payment"><a href="Payments.html">Payment</a></button>
@@ -88,7 +92,8 @@
             <span data-gainsight="testdb" >Test D&B</span>
             <button id="dselector" DuplicateValue="duplicateselector">Test1Button11</button>
             <button id="dselector" DuplicateValue="duplicateselector">Test2Button22</button>
-           
+            
+           <button><a href="ShadowDomPage.html">Shadow domm page </a></button>
 
 
 
@@ -96,6 +101,50 @@
         <a href="Payments.html">payment 2</a>
         
     </div>
+
+    <div style="width: 500px;">
+    <input type="text" id="myInput" placeholder="Type something...">
+</div>
+<br>
+
+     <div class="btn-group">
+    <button type="button" class="btn btn-primary" onclick="handleMainClick()">CREATE</button>
+    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+      <span class="visually-hidden">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#" onclick="handleAction('Test 1')">Test 1</a></li>
+      <li><a class="dropdown-item" href="#" onclick="handleAction('Test 2')">Test 2</a></li>
+    </ul>
+  </div>
+
+  
+
+  <h3>Enable Button by Checking Checkbox</h3>
+<button id="myButton">Click Meee</button>
+<script>
+  // Delay of 3 seconds (3000 milliseconds)
+   window.onload = function () {
+    setTimeout(() => {
+      const button = document.getElementById("myButton");
+      const heading = document.getElementById("heading");
+      // Move button after heading
+      heading.insertAdjacentElement("afterend", button);
+    }, 3000); // 3 seconds
+  };
+</script>
+
+  <script>
+    function handleMainClick() {
+      alert("Main button clicked");
+    }
+
+    function handleAction(option) {
+      alert("Selected: " + option);
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- <div id="specialButtonWrapper">
         <button id="specialButton" style="display: none;  margin: 20px auto;
       padding: 10px 20px;
@@ -187,7 +236,6 @@
     
 <div>
 
-    <h3>Enable Button by Checking Checkbox</h3>
 
     <label>
         <input type="checkbox" id="myCheckbox" onclick="toggleButton()">
@@ -207,6 +255,10 @@
         <a href="#">Option 3</a>
     </div>
 </div>
+
+
+
+
    
 <Script>
   // Toggle dropdown visibility
@@ -244,7 +296,10 @@
       }
     }
 
+   
+
 </Script>
+
    
 
 </body>
