@@ -358,6 +358,7 @@ document.addEventListener("DOMContentLoaded", openZendeskPopup);
 					element.dispatchEvent(eventClick);
 
 				}
-
-
-
+function onPageNavigation() {
+  console.log("New page navigation detected!");
+  // 👆 Add your custom logic here (e.g., tracking, UI updates, etc.)
+}
