@@ -1,5 +1,15 @@
 // === Load Aptrinsic SDK Early ===
 
+var config = {   
+    // Masking URLs   
+
+    filterUrls : ["*Payments.html*"],
+
+    filterType : "mask"
+
+};
+
+
 (function(n,t,a,e,co){
     var i="aptrinsic";n[i]=n[i]||function(){
         (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
@@ -358,7 +368,8 @@ document.addEventListener("DOMContentLoaded", openZendeskPopup);
 					element.dispatchEvent(eventClick);
 
 				}
-function onPageNavigation() {
-  console.log("New page navigation detected!");
-  // 👆 Add your custom logic here (e.g., tracking, UI updates, etc.)
-}
+
+window.addEventListener('popstate', onPageNavigation);
+window.addEventListener('hashchange', onPageNavigation);
+window.addEventListener('DOMContentLoaded', onPageNavigation);
+
