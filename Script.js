@@ -3,7 +3,7 @@
 var config = {   
     // Masking URLs   
 
-    filterUrls : ["*Payments.html*"],
+    filterUrls : ["*/News-Apllication*"],
 
     filterType : "mask"
 
@@ -126,10 +126,11 @@ function getEData(){
     let fname = document.getElementById("fName").value;
     let mname = document.getElementById("mName").value;
     let pincode = document.getElementById("pin").value;
+    let phone = document.getElementById("phone").value;
 
     if (typeof aptrinsic === "function") {
         aptrinsic('track', 'formText', { address, fname, mname, pincode });
-        aptrinsic('track', 'collectInfo', { address, fname, mname, pincode });
+        aptrinsic('track', 'collectInfo', { address, fname, mname, pincode, phone });
     }
 }
 
