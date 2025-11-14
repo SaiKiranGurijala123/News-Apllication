@@ -11,6 +11,7 @@ var config = {
 
 
 (function(n,t,a,e,co){
+    
     var i="aptrinsic";n[i]=n[i]||function(){
         (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
     var r=t.createElement("script");r.async=!0;r.src=a+"?a="+e;
@@ -99,11 +100,12 @@ function checkUser() {
     function handleURLChange() {
         const currentURL = window.location.href;
         console.log("Current page URL:", currentURL);
+        aptrinsic('set', 'user', { "URL": currentURL });
 
         if (currentURL.includes("news.html")) {
-            aptrinsic('set', 'globalContext', { "currentPageURL": "yes" });
+            aptrinsic('set', 'globalContext', { "currentPageURL": currentURL });
         } else {
-            aptrinsic('set', 'globalContext', { "currentPageURL": "noo" });
+            aptrinsic('set', 'globalContext', { "currentPageURL": currentURL });
         }
     }
 
@@ -131,9 +133,10 @@ function getEData(){
     if (typeof aptrinsic === "function") {
         aptrinsic('track', 'formText', { address, fname, mname, pincode });
         aptrinsic('track', 'collectInfo', { address, fname, mname, pincode, phone });
+        aptrinsic('track', 'newInformation', { attribute1:"dada", attribute2:"fasfa", attribute3:"fafaf", attribute4:"dsaff",attribute5: "dafa" });
     }
 }
-
+alert
 function buttonclick() {
     if (typeof aptrinsic === "function") {
         aptrinsic('track', '328018 Test', { status: 'clicked' });
@@ -228,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 aptrinsic('set', 'globalContext', { "buttonflag": "yes" });
             } else {
                 aptrinsic('set', 'globalContext', { "buttonflag": "no" });
-            }
+                alert("globla conted sent");         }
         }
     }
 

@@ -123,6 +123,22 @@
 
   <h3>Enable Button by Checking Checkbox</h3>
 <button id="myButton">Click Meee</button>
+
+<div>
+
+    <tr>
+    	<td class="data-title">Set claim status DENIED for zero payments</td>
+      <td class="data-value">
+        <select name="settings[claim_denied_zero_payments]" id="claim_denied_zero_payments">
+          <option value="Y" selected="selected">Yes</option>
+          <option value="N">No</option>
+        </select>
+      </td>
+      <td class="inheritable" style="display: none;">
+        <input type="checkbox" name="inheritable_settings[claim_denied_zero_payments]" value="1">
+      </td>
+    </tr>
+</div>
 <script>
   // Delay of 3 seconds (3000 milliseconds)
    window.onload = function () {
